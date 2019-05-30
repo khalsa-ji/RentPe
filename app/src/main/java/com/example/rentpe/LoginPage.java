@@ -1,5 +1,6 @@
 package com.example.rentpe;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Patterns;
@@ -12,8 +13,8 @@ import android.widget.Toast;
 import static android.widget.Toast.LENGTH_SHORT;
 
 public class LoginPage extends AppCompatActivity {
-    private Button login;
-    private TextView skip;
+    private Button login,google,fb;
+    private TextView skip,jump_to_signup,forgot_password;
     private EditText user_name,password;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,18 +24,29 @@ public class LoginPage extends AppCompatActivity {
         password = (EditText) findViewById(R.id.pass);
         login = (Button) findViewById(R.id.button3);
         skip=(TextView) findViewById(R.id.skip);
+        google=(Button) findViewById(R.id.button);
+        jump_to_signup=(TextView) findViewById(R.id.textView);
+        fb=(Button) findViewById(R.id.button2);
+        forgot_password=(TextView) findViewById(R.id.textView2);
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Boolean is_valid=checkDataEntered();
-                    if(is_valid){
-                        Toast.makeText(getApplicationContext(),"OKAY",LENGTH_SHORT).show();
-                    }
+
+
 
             }
         });
 
+        jump_to_signup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(LoginPage.this,SignupPage.class);
+                startActivity(intent);
 
+
+                        }
+        });
 
     }
 
