@@ -18,6 +18,7 @@
         android:orientation="vertical">
 
         <TextView
+            android:id="@+id/skip"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
@@ -68,9 +69,15 @@
             <android.support.design.widget.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:drawableRight="@drawable/mail"
+                android:drawableLeft="@drawable/mail"
                 android:drawablePadding="15dp"
+                android:id="@+id/user"
+                android:singleLine="true"
+                android:maxLines="1"
+                android:inputType="textEmailAddress"
+
                 android:hint="Enter Email Id/Username"/>
+
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
@@ -91,10 +98,14 @@
             <android.support.design.widget.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:drawableLeft="@drawable/lock"
+                android:drawableStart="@drawable/lock"
                 android:drawablePadding="5dp"
                 android:hint="Enter Password"
+
+                android:maxLines="1"
+                android:singleLine="true"
                 android:outlineAmbientShadowColor="#ffb661"
+                android:id="@+id/pass"
                 android:inputType="textPassword" />
         </android.support.design.widget.TextInputLayout>
 
