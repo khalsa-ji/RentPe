@@ -34,7 +34,6 @@ public class LoginPage extends AppCompatActivity {
                 Boolean is_valid=checkDataEntered();
 
 
-
             }
         });
 
@@ -45,32 +44,30 @@ public class LoginPage extends AppCompatActivity {
                 startActivity(intent);
 
 
-                        }
+            }
         });
 
     }
 
-        Boolean checkDataEntered()
+    Boolean checkDataEntered()
+    {
+        if(user_name.getText().toString().trim().length()==0)
         {
-            if(user_name.getText().toString().trim().length()==0)
-            {
-                user_name.setError("Email Address must not be empty ");
-                return false;
-            }
-            else if(Patterns.EMAIL_ADDRESS.matcher(user_name.getText().toString().trim()).matches()==false)
-            {
-                user_name.setError("Enter Valid Email Address");
-                return false;
-            }
-            else if(password.getText().toString().length()<8)
-            {
-                password.setError("Password must be greater than equal to 8 characters");
-                return false;
-            }
-            return true;
+            user_name.setError("Email Address must not be empty ");
+            return false;
         }
-
-
+        else if(Patterns.EMAIL_ADDRESS.matcher(user_name.getText().toString().trim()).matches()==false)
+        {
+            user_name.setError("Enter Valid Email Address");
+            return false;
+        }
+        else if(password.getText().toString().length()<8)
+        {
+            password.setError("Password must be greater than equal to 8 characters");
+            return false;
+        }
+        return true;
     }
 
 
+}
